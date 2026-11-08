@@ -1,0 +1,19 @@
+<h1 class="mt-4">Admin Dashboard</h1>
+<p class="lead">Welcome <%= user.name %></p>
+<h2 class="h5">Current Active Sessions</h2>
+<% if (sessions.length === 0) { %>
+  <p>No active sessions.</p>
+<% } %>
+<% sessions.forEach(session => { %>
+  <div class="card card-body mb-3">
+    <div>Session ID: <%= session.id %></div>
+    <div>User ID: <%= session.userId %></div>
+    <form action="/admin/revoke" method="POST">
+      <input type="hidden" name="sessionId" value="<%= session.id %>">
+      <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
+      <button class="btn btn-danger mt-2" type="submit">Revoke Session</button>
+    </form>
+  </div>
+<% }); %>
+<a href="/dashboard" class="btn btn-primary">Dashboard</a>
+<a href="/auth/logout" class="btn btn-secondary">Logout</a>

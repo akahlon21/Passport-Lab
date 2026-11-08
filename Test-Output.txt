@@ -1,0 +1,35 @@
+
+> check
+> tsc --noEmit
+
+
+
+> test
+> tsx --test tests/*.test.ts
+
+TAP version 13
+# PASS: protected pages, unknown email, wrong password and one-time errors
+# PASS: admin-only page, three sessions, protected revoke and individual session revocation
+# PASS: current user data on next request, logout and admin self-revocation
+# PASS: GitHub account creation, repeat login lookup and missing configuration message
+# Live GitHub OAuth authorization requires the owner's credentials and was not tested.
+# Subtest: login errors, user roles, sessions, revocation and GitHub users
+ok 1 - login errors, user roles, sessions, revocation and GitHub users
+  ---
+  duration_ms: 151.2583
+  ...
+# PASS: GitHub authorization redirect, unique state and invalid-state rejection (test credentials)
+# Subtest: GitHub redirect has random state and rejects an invalid callback
+ok 2 - GitHub redirect has random state and rejects an invalid callback
+  ---
+  duration_ms: 330.8919
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 745.7358
